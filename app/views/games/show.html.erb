@@ -1,11 +1,17 @@
+<p>Lots Picked:</p>
+<h4>
+  <%= @game.lotteries.first.numbers %>
+</h4>
 <%= turbo_stream_from :lottery_last_num %>
 <%= render 'lotteries/lottery_num', lottery: @game.lotteries.first %>
 <%= button_to "Next Number", lottery_path(@game.lotteries.first), method: :patch %>
+<%= button_to "END GAME", game_path(@game), method: :patch %>
 <% @game.game_sessions.each do |game_session| %>
   <% @card = game_session.cards.first %>
   <div class="container" display="flex">
     <div>
       <%= game_session.player.name %>
+      <span>| Card: </span><%= game_session.cards.first.id %>
     </div>
 
     <%= render 'cards/card' %>

@@ -35,5 +35,6 @@ class Game < ApplicationRecord
 
   def end
     self.status_ended!
+    cards.each &:tally
   end
 end

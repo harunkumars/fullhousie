@@ -42,4 +42,14 @@ class Card < ApplicationRecord
     end
     numbers
   end
+
+  def tally
+    picked_lots = game.lotteries.first.numbers
+    %w[first_row middle_row last_row].each do |row|
+      self.grid[row]['cells'].each do |cell|
+        cell['status'] = 1 if picked_lots.include?(cell['number'])
+      end
+    end
+    save
+  end
 end

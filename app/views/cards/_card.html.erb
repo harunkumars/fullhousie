@@ -1,5 +1,5 @@
 <div class="tbl">
-    <% %w[A AS B BS C CS D DS E ES F FS G GS H HS I IS].each do |c| %>
+    <% %w[A B C D E F G H I].each do |c| %>
       <div>
         <%= c %>
       </div>
@@ -10,11 +10,8 @@
 
       <% @card.grid.dig(row, 'cells').each do |cell| %>
         <% status_class = @card.status_helper(cell) %>
-        <div class=<%= status_class %> >
+        <div class="cell <%= status_class %>"  >
           <%= cell['number'] %>
-        </div>
-        <div>
-          <%= cell['status'] %>
         </div>
       <% end %>
 

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .tbl {
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   max-width: 480px;
 }
 .card_container {
@@ -11,7 +11,11 @@
   grid-template-columns: repeat(2, 1fr);
   max-width: 1080px;
 }
-
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .big_num {
   font-size: 48px;
   margin-left: 50px;
@@ -19,6 +23,7 @@
 
 .blocked {
   background-color: #2E2F30;
+  color: #2E2F30;
 }
 
 .checked {
