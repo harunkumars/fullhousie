@@ -1,0 +1,11 @@
+<%= form_with model: @game, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name , class: 'form-control' %>
+
+  <%= f.label :player_count %>
+  <%= f.number_field :player_count , class: 'form-control' %>
+
+
+<% end %>

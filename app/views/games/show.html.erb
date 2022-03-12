@@ -1,0 +1,13 @@
+<%= turbo_stream_from :lottery_last_num %>
+<%= render 'lotteries/lottery_num', lottery: @game.lotteries.first %>
+<%= button_to "Next Number", lottery_path(@game.lotteries.first), method: :patch %>
+<% @game.game_sessions.each do |game_session| %>
+  <% @card = game_session.cards.first %>
+  <div class="container" display="flex">
+    <div>
+      <%= game_session.player.name %>
+    </div>
+
+    <%= render 'cards/card' %>
+  </div>
+<% end %>

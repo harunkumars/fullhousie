@@ -1,0 +1,30 @@
+// Place all the styles related to the cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.tbl {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  max-width: 480px;
+}
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1080px;
+}
+
+.big_num {
+  font-size: 48px;
+  margin-left: 50px;
+}
+
+.blocked {
+  background-color: #2E2F30;
+}
+
+.checked {
+  background-color: aquamarine;
+}
+
+.default {
+  background-color: #EFEFEF;
+}

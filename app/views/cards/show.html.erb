@@ -1,0 +1,7 @@
+<%= turbo_stream_from :lottery_last_num %>
+
+<div class="card_container">
+  <%= render 'card' %>
+  <%= render 'lotteries/lottery_num', lottery: @card.game.lotteries.first %>
+</div>
+

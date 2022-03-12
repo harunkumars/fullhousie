@@ -1,7 +1,6 @@
 class Card < ApplicationRecord
   belongs_to :game_session
-
-  after_initialize :populate_grid
+  before_create :populate_grid
 
   def populate_grid
     self.grid = {
@@ -17,5 +16,30 @@ class Card < ApplicationRecord
     grid['middle_row']['cells'].each { |e| print "#{e['number'].to_s.rjust(2)}|" }
     puts "\n#{'-' * 27}"
     grid['last_row']['cells'].each { |e| print "#{e['number'].to_s.rjust(2)}|" }
+  end
+
+  def game
+    game_session.game
+  end
+
+  def status_helper(cell = {})
+    case cell['status']
+    when -1
+      'blocked'
+    when 1
+      'checked'
+    else
+      'default'
+    end
+  end
+
+  def numbers
+    numbers = []
+    %w[first_row middle_row last_row].each do |row|
+      self.grid[row]['cells'].each do |cell|
+        numbers.push cell['number'] if cell['number'].positive?
+      end
+    end
+    numbers
   end
 end

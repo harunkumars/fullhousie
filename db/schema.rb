@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_073314) do
+ActiveRecord::Schema.define(version: 2022_03_12_124713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,18 @@ ActiveRecord::Schema.define(version: 2022_03_05_073314) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
+    t.integer "last_number", default: 0
+    t.jsonb "numbers", default: []
     t.index ["name"], name: "index_games_on_name", unique: true
+  end
+
+  create_table "lotteries", force: :cascade do |t|
+    t.jsonb "numbers", default: []
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_lotteries_on_game_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -58,4 +69,5 @@ ActiveRecord::Schema.define(version: 2022_03_05_073314) do
   add_foreign_key "cards", "game_sessions"
   add_foreign_key "game_sessions", "games"
   add_foreign_key "game_sessions", "players"
+  add_foreign_key "lotteries", "games"
 end
