@@ -59,4 +59,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "ActiveAdminReports", "~> 0.1.6", git: "../hkActiveAdminReports", ref: '1ea4359'
+gem "ActiveAdminReports", "~> 0.1.6", git: "../hkActiveAdminReports", ref: 'd66237a'
+
+gem "devise", "~> 4.9"
