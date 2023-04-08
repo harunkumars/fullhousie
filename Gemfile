@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -29,7 +29,7 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 # ------ Custom additions --------------
 gem 'rich_enums', '~>0.1'
-gem 'pg', '~> 1.3'
+gem 'pg', '~> 1.4.5'
 gem 'turbo-rails', '~> 1.0', '>= 1.0.1'
 gem 'stimulus-rails', '~> 1.0', '>= 1.0.4'
 group :development, :test do
@@ -58,3 +58,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "ActiveAdminReports", "~> 0.1.6", git: "../hkActiveAdminReports", ref: '1ea4359'
