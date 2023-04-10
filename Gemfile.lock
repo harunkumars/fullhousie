@@ -1,9 +1,9 @@
 GIT
-  remote: ../hkActiveAdminReports
-  revision: d66237ab5b9d9c416943c90096400a69f7a73dac
-  ref: d66237a
+  remote: https://github.com/betacraft/ActiveAdminReports.git
+  revision: 3b7b5bd457b7b7b91cdbe6a0577ff51d54b8a53e
+  branch: main
   specs:
-    ActiveAdminReports (0.1.7)
+    ActiveAdminReports (0.1.6)
       activeadmin (>= 2.7.0)
       activestorage (>= 6.1.0)
 
