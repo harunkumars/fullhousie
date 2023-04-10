@@ -62,3 +62,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "ActiveAdminReports", "~> 0.1.6", git: "../hkActiveAdminReports", ref: 'd66237a'
 
 gem "devise", "~> 4.9"
+
+gem "activestorage", "~> 6.1"
