@@ -3,13 +3,8 @@ class CardRow < ApplicationRecord
     first_row: [1, (1..3)],
     middle_row: [2, (4..6)],
     last_row: [3, (7..10)]
-  }
+  }, alt: 'addend_range'
 
-  @status =  {
-    default: [0, ' '],
-    checked: [1, 'Y'],
-    blocked: [-1, 'O']
-  }
   after_initialize :populate_cells
 
   private
@@ -30,7 +25,7 @@ class CardRow < ApplicationRecord
 
   def element_for_cell(i)
     {
-      number: i * 10 + row_type_name.to_a.sample,
+      number: i * 10 + row_type_addend_range.to_a.sample,
       status: 0
     }
   end
