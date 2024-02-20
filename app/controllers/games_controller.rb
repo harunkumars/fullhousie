@@ -1,13 +1,13 @@
 class GamesController < ApplicationController
   before_action :game_params, only: :create
-  def new
-    @game = Game.new
-  end
+  # def new
+  #   @game = Game.new
+  # end
 
-  def create
-    Game.create(game_params || Time.now)
-    redirect_to action: :index
-  end
+  # def create
+  #   Game.create(game_params || Time.now)
+  #   redirect_to action: :index
+  # end
 
   def show
     @game = Game.find(params[:id])
