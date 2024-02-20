@@ -1,6 +1,6 @@
 <p>Lots Picked:</p>
 <h4>
-  <%= @game.lottery.numbers %>
+  <%= render @game.lottery %>
 </h4>
 <%= turbo_stream_from :lottery_last_num %>
 <%= render 'lotteries/lottery_num', lottery: @game.lottery %>

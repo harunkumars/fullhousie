@@ -1,3 +1,10 @@
-<div id="<%= dom_id lottery %>" class="big_num">
-  <%= lottery.inspect %>
+<%= turbo_stream_from :lottery_list %>
+<div id="<%= dom_id lottery %>">
+  <% lottery.numbers.each_slice(9) do |s| %>
+    <div class="drawn-lots-row">
+    <% s.each do |e| %>
+      <span class="drawn-lot"><%= e %></span>
+    <% end %>
+    </div>
+  <% end %>
 </div>
