@@ -7,11 +7,11 @@
 <%= button_to "Next Number", lottery_path(@game.lottery), method: :patch %>
 <%= button_to "END GAME", game_path(@game), method: :patch %>
 <% @game.game_sessions.each do |game_session| %>
-  <% @card = game_session.cards.first %>
+  <% @card = game_session.card %>
   <div class="container" display="flex">
     <div>
       <%= game_session.player.name %>
-      <span>| Card: </span><%= game_session.cards.first.id %>
+      <span>| Card: </span><%= game_session.card.id %>
     </div>
 
     <%= render 'cards/card' %>
