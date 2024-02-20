@@ -1,10 +1,10 @@
 <p>Lots Picked:</p>
 <h4>
-  <%= @game.lotteries.first.numbers %>
+  <%= @game.lottery.numbers %>
 </h4>
 <%= turbo_stream_from :lottery_last_num %>
-<%= render 'lotteries/lottery_num', lottery: @game.lotteries.first %>
-<%= button_to "Next Number", lottery_path(@game.lotteries.first), method: :patch %>
+<%= render 'lotteries/lottery_num', lottery: @game.lottery %>
+<%= button_to "Next Number", lottery_path(@game.lottery), method: :patch %>
 <%= button_to "END GAME", game_path(@game), method: :patch %>
 <% @game.game_sessions.each do |game_session| %>
   <% @card = game_session.cards.first %>

@@ -2,7 +2,7 @@ class Game < ApplicationRecord
   has_many :game_sessions, dependent: :destroy
   has_many :players, through: :game_sessions
   has_many :cards, through: :game_sessions
-  has_many :lotteries, dependent: :destroy
+  has_one :lottery, dependent: :destroy
 
   rich_enum status: {
     new: 0,
@@ -11,7 +11,7 @@ class Game < ApplicationRecord
   }, _prefix: true
 
   def next_number
-    lot = (numbers - lotteries.first.numbers)
+    lot = (numbers - lottery.numbers)
     if lot.empty?
       status_ended!
       0
@@ -29,7 +29,7 @@ class Game < ApplicationRecord
 
   def start
     self.numbers = numbers_from_all_cards
-    lotteries.create
+    create_lottery!
     self.status_started!
   end
 
