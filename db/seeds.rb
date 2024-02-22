@@ -26,3 +26,4 @@ STDOUT.puts "Game master can visit the following link to view the game:"
 STDOUT.puts "/games/#{game.to_param}"
 
 STDOUT.puts "Seed complete!"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
