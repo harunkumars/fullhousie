@@ -1,4 +1,4 @@
-<h4>Lots Picked:</p>
+<h4>Lots Picked:</h4>
 <h4>
   <%= render game.lottery %>
 </h4>
@@ -7,14 +7,12 @@
 <%= render 'lotteries/lottery_num', lottery: game.lottery %>
 <%= button_to "Next Number", lottery_path(game.lottery), method: :patch %>
 <br/>
-<%= button_to "END GAME", admin_game_path(game), method: :patch %>
 <% game.game_sessions.each do |game_session| %>
   <% @card = game_session.card %>
   <div class="container" display="flex">
     <div>
       <h4>Player Name:  <%= game_session.player.name %></h4>
-      <h5>Player game session link: /cards/<%= game_session.card.to_param %></h5>
-      <span>| Card: </span><%= game_session.card.id %>
+      <h5>Player game session link: <%= link_to card_url(game_session.card), card_url(game_session.card), data: {turbo: "false"} %> </h5>
     </div>
 
     <%= render 'cards/card'%>

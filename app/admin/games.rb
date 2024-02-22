@@ -33,8 +33,15 @@ ActiveAdmin.register Game do
     f.actions
   end
 
-  show do
-    render 'show', { game: game }
+  member_action :game_control, method: :get do
+    @game = Game.find(params[:id])
+    render locals: { game: @game }, layout: 'application'
+  end
+  action_item :game_control, only: :show do
+    link_to 'Game Control', game_control_admin_game_path(game)
+  end
+  action_item :end_game, only: :show do
+    link_to 'End Game', admin_game_path(game), method: :patch
   end
 
   controller do
@@ -51,7 +58,7 @@ ActiveAdmin.register Game do
     def update
       @game = Game.find(params[:id])
       @game.end
-      redirect_to action: :show
+      redirect_to action: :game_control
     end
 
     private
