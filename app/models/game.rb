@@ -4,6 +4,8 @@ class Game < ApplicationRecord
   has_many :cards, through: :game_sessions
   has_one :lottery, dependent: :destroy
 
+  accepts_nested_attributes_for :players
+
   rich_enum status: {
     new: 0,
     started: 10,
@@ -36,5 +38,13 @@ class Game < ApplicationRecord
   def end
     self.status_ended!
     cards.each &:tally
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["cards", "game_sessions", "lottery", "players"]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "id_value", "last_number", "name", "numbers", "status", "updated_at"]
   end
 end

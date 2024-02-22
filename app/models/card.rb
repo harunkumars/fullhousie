@@ -52,4 +52,8 @@ class Card < ApplicationRecord
     end
     save!
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "game_id", "id", "id_value", "player_id", "updated_at"]
+  end
 end

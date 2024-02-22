@@ -10,4 +10,8 @@ class Lottery < ApplicationRecord
     broadcast_update_to('lottery_list', target: self, partial: "lotteries/lottery", locals: { lottery: self })
     broadcast_update_to('lottery_last_num', target: "#{dom_id(self)}_num", partial: "lotteries/lottery_num", locals: { lottery: self })
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "game_id", "id", "id_value", "player_id", "updated_at"]
+  end
 end
