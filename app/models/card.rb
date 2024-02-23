@@ -43,6 +43,11 @@ class Card < ApplicationRecord
     numbers
   end
 
+  def tally!
+    tally
+    save!
+  end
+
   def tally
     picked_lots = game.lottery.numbers
     %w[first_row middle_row last_row].each do |row|
@@ -50,7 +55,6 @@ class Card < ApplicationRecord
         cell['status'] = 1 if picked_lots.include?(cell['number'])
       end
     end
-    save!
   end
 
   def self.ransackable_attributes(auth_object = nil)

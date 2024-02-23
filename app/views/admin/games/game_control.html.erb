@@ -15,6 +15,7 @@
       <h5>Player game session link: <%= link_to card_url(game_session.card), card_url(game_session.card), data: {turbo: "false"} %> </h5>
     </div>
 
+    <% @card.tally %>
     <%= render 'cards/card'%>
   </div>
 <% end %>

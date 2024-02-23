@@ -37,7 +37,7 @@ class Game < ApplicationRecord
 
   def end
     self.status_ended!
-    cards.each &:tally
+    cards.each &:tally!
   end
 
   def self.ransackable_associations(auth_object = nil)
